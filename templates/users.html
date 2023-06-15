@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read (All)</title>
+</head>
+<body>
+    <h1>All Users!</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Full name</th>
+            <th>Occupation</th>
+            <th>Created At</th>
+        </tr>
+        {% for friend in friends: %}
+        <tr>
+            <td>{{friend.id}}</td>
+            <td>{{friend.first_name}} {{friend.last_name}}</td>
+            <td>{{friend.occupation}}</td>
+            <td>{{friend.created_at}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/create_user">Add a New User</a>
+    
+</body>
+</html>
