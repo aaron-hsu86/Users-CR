@@ -13,6 +13,7 @@
             <th>Full name</th>
             <th>Occupation</th>
             <th>Created At</th>
+            <th>Actions</th>
         </tr>
         {% for friend in friends: %}
         <tr>
@@ -20,6 +21,11 @@
             <td>{{friend.first_name}} {{friend.last_name}}</td>
             <td>{{friend.occupation}}</td>
             <td>{{friend.created_at}}</td>
+            <td>
+                <a href="/show/{{friend.id}}">Show</a> |
+                <a href="/update/{{friend.id}}">Edit</a> |
+                <a href="/delete/{{friend.id}}">Delete</a>
+            </td>
         </tr>
         {% endfor %}
     </table>

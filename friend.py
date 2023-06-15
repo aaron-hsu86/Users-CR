@@ -2,6 +2,9 @@
 from mysqlconnection import connectToMySQL
 # model the class after the friend table from our database
 class Friend:
+
+    DB = 'first_flask'
+
     def __init__( self , data ):
         self.id = data['id']
         self.first_name = data['first_name']
@@ -33,7 +36,21 @@ class Friend:
     
     @classmethod
     def get_one(cls, id):
-        query = '''SELCT * FROM users WHERE id = %(id)s;'''
+        query = '''SELECT * FROM users WHERE id = %(id)s;'''
         data = {'id' : id}
-        results = connectToMySQL('first_flask').query_db(query, data)
+        results = connectToMySQL(cls.DB).query_db(query, data)
         return cls(results[0])
+    
+    @classmethod
+    def update(cls,data):
+        query = """UPDATE users 
+                SET first_name=%(fname)s,last_name=%(lname)s,occupation=%(occupation)s 
+                WHERE id = %(id)s;"""
+        return connectToMySQL('first_flask').query_db(query,data)
+
+
+    @classmethod
+    def delete(cls, id):
+        query = '''DELETE FROM users WHERE id = %(id)s;'''
+        data = {'id' : id}
+        return connectToMySQL('first_flask').query_db(query, data)

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+</head>
+<body>
+    <h1>Update User</h1>
+
+    <form action="/update" method="post">
+        <input type="hidden" name="id" value="{{friend.id}}">
+        <label for="fname">First Name:</label>
+        <input type="text" name="fname" placeholder="{{friend.first_name}}">
+        <label for="lname">Last Name:</label>
+        <input type="text" name="lname" placeholder="{{friend.last_name}}">
+        <label for="occupation">Occupation:</label>
+        <input type="text" name="occupation" placeholder="{{friend.occupation}}">
+        <input type="submit" value="Update">
+    </form>
+
+    <a href="/">Home</a>
+</body>
+</html>
